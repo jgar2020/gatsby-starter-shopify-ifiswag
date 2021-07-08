@@ -8,17 +8,6 @@
   margin-top: var(--space-3xl);
 }
 
-.logos {
-  display: flex;
-  gap: var(--space-md);
-  justify-content: center;
-  padding-bottom: var(--space-lg);
-}
-
-.blurb {
-  font-size: var(--text-sm);
-}
-
 .copyright {
   color: var(--text-color-secondary);
   font-size: var(--text-xs);
