@@ -231,24 +231,29 @@ function SearchPage({
           )}
           <ul className={productListStyle}>
             {!isFetching &&
-              productList.map(({ node }, index) => (
-                <li className={productListItem} key={node.id}>
-                  <ProductCard
-                    eager={index === 0}
-                    product={{
-                      title: node.title,
-                      priceRangeV2: node.priceRangeV2,
-                      slug: `/products/${slugify(node.productType)}/${
-                        node.handle
-                      }`,
-                      // The search API and Gatsby data layer have slightly different images available.
-                      images: isDefault ? node.images : [],
-                      storefrontImages: !isDefault && node.images,
-                      vendor: node.vendor,
-                    }}
-                  />
-                </li>
-              ))}
+              productList.map(({ node }, index) => {
+                let calcSlug = node.productType ? `/products/${slugify(node.productType)}/${
+                  node.handle
+                }` : `/products/${
+                  node.handle
+                }`;
+                return (
+                  <li className={productListItem} key={node.id}>
+                    <ProductCard
+                      eager={index === 0}
+                      product={{
+                        title: node.title,
+                        priceRangeV2: node.priceRangeV2,
+                        slug: calcSlug,
+                        // The search API and Gatsby data layer have slightly different images available.
+                        images: isDefault ? node.images : [],
+                        storefrontImages: !isDefault && node.images,
+                        vendor: node.vendor,
+                      }}
+                    />
+                  </li>
+                )
+              })}
           </ul>
           {hasPreviousPage || hasNextPage ? (
             <Pagination

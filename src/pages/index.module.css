@@ -3,7 +3,7 @@
   padding-right: var(--size-gutter-raw);
   padding-top: var(--space-lg);
   padding-bottom: var(--space-3xl);
-  max-width: 76ch;
+  max-width: 120ch;
 }
 
 .intro {
@@ -37,4 +37,9 @@
 
 .deployButton {
   margin-top: var(--space-lg);
+}
+
+.genInlineLink {
+  text-decoration: underline;
+  font-style: italic;
 }
